@@ -5,21 +5,15 @@ This is a web based time tracking application.  It allows authenticated users to
 time-sheet entries.
 Overtime hours can also be entered and approved by an Admin role.
 
-Some other features
-* 
-
-* 
-
-* 
-
-* 
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Some technical details and features:
+##   Implementation of functionality: 
+* POST model for capturing data.
+* DEVISE based authentication
+* ADMIN user feature (administrate gem).
+* Approval workflow.
+* SMS messages(Twilio) with links.
+* Reporting(email) summaries to admins/managers.
+* Overtime yes/no tracking.
+* DOTENV to protect credentials.
+* RSPEC and capybara for testing.
+* Bootstrap
