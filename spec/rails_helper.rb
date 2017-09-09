@@ -32,7 +32,6 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.use_transactional_fixtures = false   #km changed to false
-  config.use_transactional_fixtures = false
   config.before(:suite) { DatabaseCleaner.clean_with(:truncation) }              #km
   config.before(:each) { DatabaseCleaner.strategy = :transaction }               #km
   config.before(:each, :js => true) { DatabaseCleaner.strategy = :truncation }   #km
@@ -40,5 +39,4 @@ RSpec.configure do |config|
   config.after(:each) { DatabaseCleaner.clean }                                  #km
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
-  
 end
