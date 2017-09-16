@@ -1,6 +1,6 @@
 class StaticController < ApplicationController
 
   def homepage
-    puts 'dude'
+    puts 'home page puts dude'
   end
 end
