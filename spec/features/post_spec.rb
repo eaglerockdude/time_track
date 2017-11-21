@@ -47,8 +47,10 @@ describe 'Feature - Posts creation via a FORM'  do
 
     it 'a POST will have a USER associated with it' do
       fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: 'rationale for overtime'
+      fill_in 'post[rationale]', with: 'user is associated'
       click_on 'Submit Post'
+
+      expect(User.last.posts.last.rationale).to eq('user is associated')
     end
 
   # TODO  ------------------
