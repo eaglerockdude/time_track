@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
-end
+  end
 # Devise for authenticaton
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -37,6 +37,12 @@ gem 'jbuilder', '~> 2.5'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  
+  # km added bootstrap and better errors:
+  gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
+  gem 'better_errors', '~> 2.4'
+  gem 'binding_of_caller', '~> 0.7.3'
+  
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'capybara'
