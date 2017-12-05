@@ -21,8 +21,8 @@ describe 'feature - navigate' do
       post1 = Post.create(date: Date.today, rationale: "Post1")
       post2 = Post.create(date: Date.today, rationale: "Post2")
       visit posts_path
-      byebug
-      expect(page).to have_content(/Post1|Post2/)
+      #byebug
+      expect(page).to have_content(/'Post1'|'Post2'/)
       
     end
     
