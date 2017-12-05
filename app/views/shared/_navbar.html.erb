@@ -1,29 +1,24 @@
-<ul class="nav nav-tabs">
-  <li class="active">
-    <a href="#">Home</a>
+<div class='logo'>
+  <h1>Time Tracker</h1>
+</div>
+
+<ul class="custom-nav nav nav-tabs">
+  <li class="<%= active_tab(root_path) %>">
+    <%= link_to "Home", root_path %>
   </li>
-  <li>
-    <a href="#">Profile</a>
-  </li>
-  <li class="disabled">
-    <a href="#">Messages</a>
+  <li class="<%= active_tab(posts_path) %>">
+    <%= link_to "Time Entries", posts_path %>
   </li>
   <li class="dropdown pull-right">
-    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>
+    <a href="#" data-toggle="dropdown" class="dropdown-toggle">Account<strong class="caret"></strong></a>
     <ul class="dropdown-menu">
       <li>
-        <a href="#">Action</a>
-      </li>
-      <li>
-        <a href="#">Another action</a>
-      </li>
-      <li>
-        <a href="#">Something else here</a>
+        <%= link_to "Edit Account Details", edit_user_registration_path %>
       </li>
       <li class="divider">
       </li>
       <li>
-        <a href="#">Separated link</a>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
       </li>
     </ul>
   </li>

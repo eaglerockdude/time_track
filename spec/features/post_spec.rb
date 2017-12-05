@@ -2,6 +2,12 @@ require 'rails_helper'
 
 # tests for navigation
 describe 'feature - navigate' do
+  # login before all tests
+  before do
+    user = User.create(email: 'test@gmail.com', first_name:'firstname', last_name:'lastname',password:'password', password_confirmation:'password')
+    login_as(user, :scope=>:user)
+  end
+  
   describe 'index' do
     it 'can be reached successfully' do
       visit posts_path
@@ -11,6 +17,15 @@ describe 'feature - navigate' do
       visit posts_path
       expect(page).to have_content(/Posts/)
     end
+    it 'lists posts' do
+      post1 = Post.create(date: Date.today, rationale: "Post1")
+      post2 = Post.create(date: Date.today, rationale: "Post2")
+      visit posts_path
+      byebug
+      expect(page).to have_content(/Post1|Post2/)
+      
+    end
+    
   end
   end
 
