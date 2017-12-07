@@ -4,8 +4,8 @@ require 'rails_helper'
 describe 'feature - navigate' do
   # login before all tests
   before do
-    user = User.create(email: 'test@gmail.com', first_name:'firstname', last_name:'lastname',password:'password', password_confirmation:'password')
-    login_as(user, :scope=>:user)
+    @user = User.create(email: 'test@gmail.com', first_name:'firstname', last_name:'lastname',password:'password', password_confirmation:'password')
+    login_as(@user, :scope=>:user)
   end
   
   describe 'index' do
@@ -18,11 +18,11 @@ describe 'feature - navigate' do
       expect(page).to have_content(/Posts/)
     end
     it 'lists posts' do
-      post1 = Post.create(date: Date.today, rationale: "Post1")
-      post2 = Post.create(date: Date.today, rationale: "Post2")
+      post1 = Post.create(date: Date.today, rationale: "Post1", user_id: @user.id)
+      post2 = Post.create(date: Date.today, rationale: "Post2", user_id: @user.id)
       visit posts_path
       #byebug
-      expect(page).to have_content(/'Post1'|'Post2'/)
+      expect(page).to have_content(/Post1|Post2/)
       
     end
     
