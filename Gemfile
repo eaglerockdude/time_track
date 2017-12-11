@@ -38,6 +38,7 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   
+  gem 'factory_bot_rails'
   # km added bootstrap and better errors:
   gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
   gem 'better_errors', '~> 2.4'
