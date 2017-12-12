@@ -3,7 +3,11 @@ require 'rails_helper'
 RSpec.describe AdminUser, type: :model do
 
   before do
+=begin
     @adminuser = AdminUser.create(email: 'test@gmail.com', first_name:'firstname', last_name:'lastname',password:'password', password_confirmation:'password')
+=end
+  @adminuser = FactoryBot.create(:another_user)
+    byebug
   end
  describe 'CREATE an admin user ' do
    it 'can be created' do

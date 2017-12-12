@@ -4,10 +4,11 @@ require 'rails_helper'
 describe 'feature - navigate' do
   # login before all tests
   before do
-    @user = User.create(email: 'test@gmail.com', first_name:'firstname', last_name:'lastname',password:'password', password_confirmation:'password')
-    login_as(@user, :scope=>:user)
+    @user = FactoryBot.create(:user)
+    login_as(@user, :scope => :user)
+    @user2 = FactoryBot.create(:another_user)
+    login_as(@user2, :scope => :another_user)
   end
-  
   describe 'index' do
     it 'can be reached successfully' do
       visit posts_path
@@ -18,14 +19,13 @@ describe 'feature - navigate' do
       expect(page).to have_content(/Posts/)
     end
     it 'lists posts' do
-      post1 = Post.create(date: Date.today, rationale: "Post1", user_id: @user.id)
-      post2 = Post.create(date: Date.today, rationale: "Post2", user_id: @user.id)
+      post1 = FactoryBot.build_stubbed(:post)
+      post2 = FactoryBot.create(:another_post)
       visit posts_path
-      #byebug
-      expect(page).to have_content(/Post1|Post2/)
+      byebug
+      expect(page).to have_content(/fb1|fb2/)
       
     end
-    
   end
   end
 
