@@ -22,22 +22,27 @@ describe 'feature - navigate' do
       post1 = FactoryBot.build_stubbed(:post)
       post2 = FactoryBot.create(:another_post)
       visit posts_path
-      byebug
       expect(page).to have_content(/fb1|fb2/)
-      
     end
   end
-  end
+end
 
 # tests for FORM post creation
-describe 'Feature - Posts creation via a FORM'  do
+describe 'Feature - Posts creation via a FORM' do
 
   before do
     user = User.create(email: 'test@gmail.com', first_name:'firstname', last_name:'lastname',password:'password', password_confirmation:'password')
     login_as(user, :scope=>:user)
     visit new_post_path
   end
-  
+
+  describe 'add new post' do
+    it 'can be reached from the home/status page' do
+      visit posts_path
+      click_link 'New'
+      expect(page.status_code).to eq(200)
+    end
+  end
   describe 'NEW Post create' do
 
     it 'ensures that the form route works with the /new action' do
@@ -49,7 +54,6 @@ describe 'Feature - Posts creation via a FORM'  do
       expect(page).to have_content('Post Form')
     end
 
-     # We want to display a form, fill it in, submit it, and redirect to our SHOW page.
     it "displays a new post form that redirects to the SHOW page after submit, which then contains the submitted post's title and description" do
 
       fill_in 'post[date]', with: Date.today
@@ -67,14 +71,25 @@ describe 'Feature - Posts creation via a FORM'  do
 
       expect(User.last.posts.last.rationale).to eq('user is associated')
     end
+  end
+end
 
-  # TODO  ------------------
-    it 'the new template contains a form with fields for a Post' do
-      visit new_post_path
-      fill_in 'post[date]', with: Date.today
-      fill_in 'post[rationale]', with: 'rational for overtime'
-      click_on 'Submit Post'
-    end
+describe 'edit' do
+  before do
+    @post = FactoryBot.create(:post)
+  end
+  
+  it 'can be reached from index page button' do
+    visit posts_path
+    click_link 'Edit'
+    expect(page.status_code).to eq(200)
+  end
 
+  it 'can be edited' do
+    visit edit_post_path(@post)
+    fill_in 'post[date]', with: Date.today
+    fill_in 'post[rationale]', with: "Edited content"
+    click_on "Save"
+    expect(page).to have_content("Edited content")
   end
 end

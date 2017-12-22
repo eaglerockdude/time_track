@@ -9,6 +9,9 @@
   <li class="<%= active_tab(posts_path) %>">
     <%= link_to "Time Entries", posts_path %>
   </li>
+  <li class="<%= active_tab(root_path) %>">
+    <%= link_to "New", new_post_path %>
+  </li>
   <li class="dropdown pull-right">
     <a href="#" data-toggle="dropdown" class="dropdown-toggle">Account<strong class="caret"></strong></a>
     <ul class="dropdown-menu">

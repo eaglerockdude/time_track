@@ -1,0 +1,9 @@
+<fieldset class="">
+  <legend><%= form_hdg %></legend>
+  <%= form_for @post do |f| %>
+    <%= f.date_field :date %>
+    <%= f.text_area :rationale %>
+    <%= f.submit 'Submit' %>
+  <% end %>
+  <%= link_to 'Back', posts_path %>
+</fieldset>
