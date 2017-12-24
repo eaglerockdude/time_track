@@ -93,3 +93,14 @@ describe 'edit' do
     expect(page).to have_content("Edited content")
   end
 end
+
+describe 'Post#delete' do
+  before do
+    @post = FactoryBot.create(:post)
+  end
+  it 'can be deleted' do
+    visit posts_path
+    click_link("Delete")
+    expect(page.status_code).to eq(200)
+  end
+end

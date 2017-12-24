@@ -13,8 +13,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <%= render 'layouts/messages' %>
           <%= render 'shared/navbar' %>
+          <h3 class = 'flash_notice'>
+          <%= flash_messages %>
+          </h3>
           <%= yield %>
         </div>
       </div>
