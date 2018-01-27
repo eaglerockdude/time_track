@@ -1,9 +1,15 @@
-<fieldset class="">
-  <legend><%= form_hdg %></legend>
-  <%= form_for @post do |f| %>
-    <%= f.date_field :date %>
-    <%= f.text_area :rationale %>
-    <%= f.submit 'Submit' %>
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= form_hdg %></div>
+  <div class="panel-body">
+  <%= simple_form_for @post do |f| %>
+    <%= f.input :date %>
+    <%= f.input :rationale, label: 'Rationale' %>
+    <%= f.button :submit , class: 'btn-primary' %>
   <% end %>
-  <%= link_to 'Back', posts_path %>
-</fieldset>
+      </div>
+    </div>
+<br>
+   <%= link_to 'Back', posts_path %>
+</div>
+
+
