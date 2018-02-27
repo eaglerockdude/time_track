@@ -14,13 +14,13 @@
       <div class="row">
         <div class="col-md-12">
           <%= render 'shared/navbar' %>
-          <h3 class = 'flash_notice'>
+          <!--<h3 class = 'flash_notice'>
           <%= flash_messages %>
-          </h3>
+          </h3>-->
           <%= yield %>
         </div>
       </div>
     </div>
-
+    <%= js add_gritter(flash[:notice], title: "Notification", sticky:false) %>
   </body>
 </html>
