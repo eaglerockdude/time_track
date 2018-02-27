@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+
+#gritter for growl notifications
+gem 'gritter'
 #simple forms
 gem 'simple_form'
 # Devise for authenticaton
