@@ -1,1 +1,2 @@
-- 
+- installed administrate and reviewed code
+- now need to adjust default fields for the maintenance sreens.
