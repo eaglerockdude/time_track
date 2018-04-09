@@ -10,16 +10,8 @@ class UserDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     posts: Field::HasMany,
     id: Field::Number,
-    email: Field::String,
-    password: Field::String,
-    reset_password_token: Field::String,
-    reset_password_sent_at: Field::DateTime,
-    remember_created_at: Field::DateTime,
-    sign_in_count: Field::Number,
-    current_sign_in_at: Field::DateTime,
-    last_sign_in_at: Field::DateTime,
-    current_sign_in_ip: Field::String.with_options(searchable: false),
-    last_sign_in_ip: Field::String.with_options(searchable: false),
+    email: Field::String.with_options(searchable: true),
+    password: Field::String.with_options(searchable: false),
     first_name: Field::String,
     last_name: Field::String,
     type: Field::String,
@@ -34,8 +26,10 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
     :posts,
-    :id,
+    :first_name,
+    :last_name,
     :email,
+    :id,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
