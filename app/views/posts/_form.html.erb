@@ -1,16 +1,16 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><%= form_hdg %></div>
   <div class="panel-body">
-  <%= simple_form_for @post , remote:true do |f| %>
+    <%= simple_form_for @post , remote:true do |f| %>
       <%= @post.errors.inspect %>
-    <%= f.input :date %>
-    <%= f.input :rationale, label: 'Rationale' %>
-    <%= f.button :submit , class: 'btn-primary' %>
-  <% end %>
-      </div>
-    </div>
-<br>
-   <%= link_to 'Back', posts_path %>
+      <%= f.input :date %>
+      <%= f.input :rationale, label: 'Rationale' %>
+      <%= f.button :submit , class: 'btn-primary' %>
+    <% end %>
+  </div>
 </div>
+<br>
+<%= link_to 'Back', posts_path %>
+
 
 

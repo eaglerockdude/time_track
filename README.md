@@ -9,6 +9,7 @@ Some technical details and features:
 ##   Implementation of functionality: 
 * POST model for capturing data.
 * DEVISE based authentication
+* register function removed..will use Administrate gem.
 * ADMIN user feature (administrate gem).
 * Approval workflow.
 * SMS messages(Twilio) with links.
