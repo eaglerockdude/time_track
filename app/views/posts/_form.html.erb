@@ -1,11 +1,26 @@
 <div class="panel panel-primary">
+
   <div class="panel-heading"><%= form_hdg %></div>
   <div class="panel-body">
-    <%= simple_form_for @post , remote:true do |f| %>
-      <%= @post.errors.inspect %>
+    <%= simple_form_for @post do |f| %>
+      <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |error| %>
+          <%= js add_gritter(error, title: "Gritter-Man", sticky: false) %>
+        <% end %>
+      <% end %>
       <%= f.input :date %>
-      <%= f.input :rationale, label: 'Rationale' %>
-      <%= f.button :submit , class: 'btn-primary' %>
+      <%= f.input :rationale, label: 'Rationale', placeholder: 'Explanation for overtime.' %>
+      <div class ='form-group'>
+        <%= f.radio_button :status, 'submitted'%>
+        <%= f.label :status, 'Submitted'%>
+        <%= f.radio_button :status, 'approved'%>
+        <%= f.label :status, 'Approved'%>
+        <%= f.radio_button :status, 'rejected'%>
+        <%= f.label :status, 'Rejected'%>
+      </div>
+      <div class = 'form-group'>
+        <%= f.button :submit , class: 'btn-primary' %>
+      </div>
     <% end %>
   </div>
 </div>

@@ -1,5 +1,11 @@
 <div class='logo'>
-  <h1>Time Tracker</h1>
+  <h1>Time Tracker
+    <span class ='nameblue'><% if user_signed_in? %>
+      <%= ' (For ' + current_user.full_name + ')' %>
+      <% end %></span>
+  </h1>
+  
+  <%= csrf_meta_tags %>
 </div>
 
 <ul class="custom-nav nav nav-tabs">

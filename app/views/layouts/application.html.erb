@@ -2,8 +2,6 @@
 <html>
   <head>
     <title>TimeTrack</title>
-    <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -14,13 +12,10 @@
       <div class="row">
         <div class="col-md-12">
           <%= render 'shared/navbar' %>
-          <!--<h3 class = 'flash_notice'>
-          <%= flash_messages %>
-          </h3>-->
           <%= yield %>
         </div>
       </div>
     </div>
-    <%= js add_gritter(flash[:notice], title: "Notification", sticky:false) %>
+    <%= render 'shared/alerts' %>
   </body>
 </html>
