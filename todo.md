@@ -7,3 +7,4 @@ Administrate changes
   
 - Post
 - AdminUser
+1. Only those of type 'AdminUser' can see or have access to the workflow status fields.
